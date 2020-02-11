@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+body {
+    font-size: 18px;
+    line-height: 28px;
+    color: #333;
+}
+
+header {
+    background: url(images/coding-header.jpg) 50% 50%;
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+    color: #fff;
+    padding: 14% 0;
+}
+
+section {
+    width: 700px;
+    margin: 0 auto;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 40px;
+    margin-bottom: 70px;
+}
+
+footer {
+    text-align: center;
+}
+
+h1, 
+h2, 
+h3 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 64px;
+    line-height: 68px;
+    margin: 0;
+}
+
+h2 {
+    font-size: 46px;
+    line-height: 50px;
+    margin-bottom: 0;
+}
+
+h3 {
+    font-size: 28px;
+    line-height: 32px;
+}
+
+a {
+    color: #2B9FD6;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #30BEFF;
+    text-decoration: underline;
+}
+
+ul,
+ol {
+    margin: 0;
+}
+
+header p {
+    font-style: italic;
+}
+
+span.bold {
+    font-weight: bold;
+}
+
+footer ul {
+    padding: 0;
+}
+
+footer li {
+    display: inline-block;
+    vertical-align: top;
+    width: 31%;
+    background: #eee;
+    border-top: 4px solid #2B9FD6;
+    padding: 1%;
+    min-height: 90px; 
+}
+
+footer li:hover {
+    border-color: #30BEFF;
+}
+
+footer p {
+    font-size: 14px;
+    color: #333;
+}
