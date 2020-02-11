@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <title>Understanding CSS: Selector Specificity</title>
+        <link rel="stylesheet" type="text/css" href="reset.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+
+    <body>
+        <header>
+            <h1>Understanding CSS: Selector Specificity</h1>
+            <p>Daniel Eden   |   Aug 7</p>
+        </header>
+
+        <section>
+            <p>Let me throw you a scenario you may be very familiar with.</p>
+            <p>You’re working on a feature for a website or web app that requires some overriding or other changes to the style of a component. You jump into Web Inspector, grab the class for the element(s) in question, and write some new CSS. Easy. However, after refreshing the page, none of the changes have been made — or some have, but not all of them. Maybe the color changes, but the `margin-left: auto` you gave the element remains the same.</p>
+            <p>This is usually because of <strong>specificity</strong>. CSS specificity refers to the specificity of the conditions of a CSS selector. Here’s an example:</p>
+            
+            <img src="C:\Users\123\Downloads\Step by Step HTML and CSS\Step by Step HTML and CSS\images/code-01.png"/>
+           
+            <p>This selector has a low specificity, since it’s just targeting an `a` element. Let’s increase the specificity.</p>
+            
+            <img src="C:\Users\123\Downloads\Step by Step HTML and CSS\Step by Step HTML and CSS\images/code-02.png"/>
+           
+            <p>This CSS is targeting an `a` element inside any element with a class of `modal`. We could add a condition to the class selector, too:</p>
+           
+            <img src="C:\Users\123\Downloads\Step by Step HTML and CSS\Step by Step HTML and CSS\images/code-03.png"/>
+            
+            <p>Now the CSS is targeting `a` elements inside `div`s with a class of `modal`.</p>
+            <p>The more conditions there are in a CSS selector, the higher its specificity. Specificity trumps the cascade, so in this case:</p>
+
+            <img src="C:\Users\123\Downloads\Step by Step HTML and CSS\Step by Step HTML and CSS\images/code-04.png"/>
+
+            <p>Even though the rule on line 5 appears later in the stylesheet, its specificity is not as high as the rule on line 1, so `a` elements inside `div`s with a class of `modal` will appear green.</p>
+           
+            <h2>Calculating CSS Specificity</h2>
+            <p>Now that we understand the implications of selector specificity, let’s get some hard numbers to help us diagnose specificity issues.</p>
+            <p>People smarter than myself managed to come up with a numerical representation of CSS specificity, allowing us to calculate specificity scores. It works out like this:</p>
+
+            <ul>
+                <li>Elements and pseudo-elements (`a, div , body, :before, :after`) get a score of 1</li>
+                <li>Classes and attribute selectors (`.element, [type=”text”]`) get a score of 10</li>
+                <li>IDs (`#header`) get a score of 100</li>
+                <li>Inline styles get a score of 1000</li>
+            </ul>
+
+            <p>Let’s calculate the score for one of the earlier examples.</p>
+
+            <img src="C:\Users\123\Downloads\Step by Step HTML and CSS\Step by Step HTML and CSS\images/code-05.png"/>
+
+            <p>This selector has:</p>
+            <ul>
+                <li>5 elements (5)</li>
+                <li>1 class (10)</li>
+                <li>2 IDs (200)</li>
+            </ul>
+
+            <p>Giving it a total specificity score of 215. You’d have to write a rule of equal or higher specificity to override the styles applied by it.</p>
+            <p>With the scoring in mind, take a look at the specificity graph for Dropbox’s `main.css` here. You can see the graph spikes at a <span class="bold"> score of 532</span>. That means a CSS selector that looks something like this:</p>
+
+            <img src="C:\Users\123\Downloads\Step by Step HTML and CSS\Step by Step HTML and CSS\images/coSde-06.png"/>
+
+            <p>Bear in mind this is the specificity of an actual selector in Dropbox’s CSS today. Yikes.</p>
+
+            <h2>Avoiding Over-Specific CSS</h2>
+
+            <p>Avoiding writing overly-specific CSS rules takes just being mindful of a couple of things.</p>
+
+            <ol>
+                <li>Avoid nesting</li>
+                <li>Aim for low specificity when increasing specificity is a requirement</li>
+            </ol>
+
+            <p>Understanding how CSS specificity works will make those things much easier, and if you made it this far, you should have a pretty good understanding by now!</p>
+        </section>
+
+        <footer>
+            <h3>Further Reading/Resources</h3>
+
+            <ul>
+                <li><a href="http://cssstats.com/">CSS Stats</a> is a great utility for analyzing CSS size, specificity, and other interesting stats.</li>
+                <li>This <a href="https://css-tricks.com/specifics-on-css-specificity/">CSS-Tricks</a> article has a few more code examples of specificity.</li>
+                <li><a href="http://specificity.keegan.st/">Specificity Calculator</a> lets you input CSS selectors to get their specificity score. More interesting than necessarily useful.</li>
+            </ul>
+
+            <p>Copyright © 2018. All Rights Reserved.</p>
+        </footer>
+    </body>
+</html>
